@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+a{
+  color: white !important;
+  text-decoration: none !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.heading{
+  font-family: 'Dela Gothic One', cursive;
+}
+.movie-card{
+  /* font-family: 'Kiwi Maru', serif; */
+  font-family: 'Arimo', sans-serif;
+}
+
+.movie-card div span{
+  font-weight: 300 !important;
+  margin-left: 1px;
+}
+
+
+/* Loading css */
+
+.loading{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  letter-spacing: 0.5rem;
+}
+
+.dots{
+  position: relative;
+}
+
+.dot-1{
+  position: absolute;
+  animation: jump1 1s infinite;
+}
+@keyframes jump1{
+  0%{
+    top: -10px;
+  }
+  50%{
+    top:0px;
+  }
+  100%{
+    top: -10px;
+  }
+}
+.dot-2{
+  position: absolute;
+  left: 10px;
+  animation: jump2 1s infinite;
+  animation-delay: 0.2s;
+}
+@keyframes jump2{
+  0%{
+    top: -10px;
+  }
+  50%{
+    top:0px;
+  }
+  100%{
+    top: -10px;
+  }
+}
+.dot-3{
+  position: absolute;
+  left: 20px;
+  animation: jump3 1s infinite;
+  animation-delay: 0.4s;
+}
+@keyframes jump3{
+  0%{
+    top: -10px;
+  }
+  50%{
+    top:0px;
+  }
+  100%{
+    top: -10px;
+  }
+}
+
+
+.search-card{
+  width: 250px;
+  height: auto;
+  position: relative;
+  justify-content: center !important;
+  /* align-items: center; */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.search-card-header p{
+  font-size: 0.9rem !important;
+}
+.search-card-header .movie-title{
+  cursor: pointer;
+  font-family: 'Arimo', sans-serif;
+  margin: 0.15rem auto 0rem !important;
+}
+.search-card-header .movie-title:hover{
+  text-decoration: underline;
+}
+.search-card-header .movie-year{
+  font-family: 'Arimo', sans-serif;
+  color: #666 !important;
+  margin: 0rem auto 0rem !important;
+}
+.search-card-body{
+  width: 250px;
+  height: 330px;
+  position: relative;
+  /* cursor: pointer; */
+  overflow: hidden;
+  border:1.5px solid #1DB954;
+  border-radius: 0.25rem;
+}
+
+.search-card-body img{
+  width: 100%;
+  height: 330px;
+  object-fit:fill;
+  transition: all 0.2s ease-out;
+  border-radius: 0.15rem;
+}
+.card-hover-div{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in;
+}
+.card-hover-button{
+  width: 100%;
+  height: 50%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.search-card-body:hover img{
+  transform: scale(1.05);
+}
+
+.search-card-body:hover .card-hover-div{
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s ease-in;
+}
+.separate-movie-card img{
+  border:1px solid #1DB954;
+  border-radius: 5px;
+  /* 1DB954 */
+}
+.go-back-icon{
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.whole-card{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  color: white;
+  align-items: flex-start;
+}
+.link-div{
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.link-div .link{
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  width: 30%;
+  text-align: center;
+  border: 1px solid white;
+  transition: background-color 0.3s ease-in;
+  padding: 0.25rem;
+}
+.link-div .link.active{
+  background-color: white;
+  color: black !important;
+  transition: background-color 0.3s ease-out;
+}
+
+.results{
+  color: white;
+}
+.i-arrow{
+  font-size: 1.6rem;
+  color: white;
+}
+.i-arrow i{
+  cursor: pointer;
+}
+.color-white{
+  color: white !important;
+}
+@media (max-width:550px) {
+  .search-card-body{
+    width: 100%;
+    height: 250px;
+    position: relative;
+    border:2px solid #1DB954;
+  }
+  .search-card{
+    width: 40%;
+  }
+  .search-card-body img{
+    height: 250px;
+  }
+  .search-card-header h5{
+    font-size: 1.05rem !important;
+  }
+  .link-div{
+    width: 100%;
+  }
+  .link-div .link{
+    width: 50%;
+    text-align: center;
+    border: 1px solid white;
+    transition: background-color 0.3s ease-in;
+  }
+}
+@media (min-width:550px) and (max-width:750px) {
+  .link-div .link{
+    width: 35%;
+  }
+}
+
+
+/* React Transition Group */
+.fade-appear{
+  transform: scale(0.7);
+}
+
+.fade-appear.fade-appear-active{
+  transform: scale(1);
+  transition: transform 300ms ease-in-out;
+}
+.visible-appear{
+  opacity: 0.5;
+}
+
+.visible-appear.visible-appear-active{
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
+
