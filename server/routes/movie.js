@@ -10,7 +10,7 @@ torrentSearch.enablePublicProviders();
 router.get('/movie/:title',async(req,res)=>{
     try {
         let {title}=req.params
-        let response=await axios.get(`http://www.omdbapi.com/?apikey=f4b4892f&i=${title}&plot=full`)
+        let response=await axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=${title}&plot=full`)
         return res.json(response.data)   
     } catch (error) {
         return res.json({'message':error.message})
@@ -19,7 +19,7 @@ router.get('/movie/:title',async(req,res)=>{
 router.get('/search/:title/:page',async(req,res)=>{
     try {
         let {title,page}=req.params
-        let response=await axios.get(`http://www.omdbapi.com/?apikey=f4b4892f&s=${title}&page=${page}`)
+        let response=await axios.get(`http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=${title}&page=${page}`)
         let model=await collection.getCollection()
         let result=await model.insertMany([{'keyword':title}])
         return res.json(response.data)
